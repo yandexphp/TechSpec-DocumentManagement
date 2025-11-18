@@ -1,0 +1,43 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  password  String
+  nickname  String    @unique
+  avatarUrl String?
+  createdAt DateTime  @default(now())
+  documents Document[]
+
+  @@map("users")
+}
+
+model Document {
+  id          String    @id @default(uuid())
+  originalName String
+  mimeType    String
+  size        BigInt
+  filePath    String
+  fileURL     String
+  isPrivate   Boolean   @default(true) @map("is_private")
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime? @map("deleted_at")
+  userId      String    @map("user_id")
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("documents")
+  @@index([userId, deletedAt])
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([originalName])
+  @@index([mimeType])
+  @@index([isPrivate])
+}
+

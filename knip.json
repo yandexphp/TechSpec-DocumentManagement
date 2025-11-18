@@ -1,0 +1,110 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "workspaces": {
+    "backend": {
+      "entry": [
+        "src/main.ts",
+        "src/app.module.ts",
+        "src/**/*.module.ts",
+        "src/**/*.controller.ts",
+        "src/**/*.service.ts",
+        "src/**/*.gateway.ts",
+        "src/**/*.strategy.ts",
+        "src/**/*.decorator.ts",
+        "src/**/*.filter.ts",
+        "src/**/*.dto.ts",
+        "src/**/*.interface.ts",
+        "test/**/*.e2e-spec.ts"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+      ],
+      "ignore": [
+        "src/**/*.spec.ts",
+        "**/*.d.ts"
+      ]
+    },
+    "frontend": {
+      "entry": [
+        "src/main.tsx",
+        "src/app/index.tsx",
+        "src/app/router.tsx",
+        "src/app/providers/**/*.tsx",
+        "src/routes/**/*.tsx",
+        "src/routes/**/*.ts",
+        "src/pages/**/*.tsx",
+        "src/widgets/**/*.tsx",
+        "src/features/**/*.tsx",
+        "src/features/**/*.ts",
+        "src/entities/**/*.ts",
+        "src/shared/**/*.tsx",
+        "src/shared/**/*.ts",
+        "src/components/**/*.tsx",
+        "src/hooks/**/*.ts",
+        "src/services/**/*.ts",
+        "src/context/**/*.tsx",
+        "src/api/**/*.ts",
+        "src/lib/**/*.ts",
+        "src/lib/**/*.tsx",
+        "src/store/**/*.ts",
+        "src/i18n/**/*.ts",
+        "src/types/**/*.ts",
+        "e2e/**/*.spec.ts",
+        "vite.config.ts",
+        "vitest.config.ts",
+        "playwright.config.ts",
+        "tailwind.config.js",
+        "postcss.config.js"
+      ],
+      "project": [
+        "src/**/*.{ts,tsx}",
+        "e2e/**/*.ts",
+        "vite.config.ts",
+        "vitest.config.ts",
+        "playwright.config.ts",
+        "tailwind.config.js",
+        "postcss.config.js",
+        "tsconfig*.json",
+        "tsr.json"
+      ],
+      "ignore": [
+        "**/*.d.ts",
+        "src/vite-env.d.ts",
+        "**/routeTree.gen.ts"
+      ]
+    }
+  },
+  "ignore": [
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.e2e-spec.ts",
+    "**/*.d.ts",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.next/**",
+    "**/coverage/**",
+    "**/routeTree.gen.ts"
+  ],
+  "ignoreBinaries": ["prisma"],
+  "ignoreDependencies": [
+    "@nestjs/testing",
+    "@types/jest",
+    "@types/supertest",
+    "jest",
+    "ts-jest",
+    "supertest",
+    "@playwright/test",
+    "@testing-library/jest-dom",
+    "@testing-library/react",
+    "@testing-library/user-event",
+    "@vitest/coverage-v8",
+    "@vitest/ui",
+    "vitest",
+    "jsdom",
+    "msw"
+  ]
+}
+
