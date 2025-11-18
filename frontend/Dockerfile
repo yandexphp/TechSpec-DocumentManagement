@@ -1,11 +1,9 @@
-FROM oven/bun:1-alpine AS base
+FROM oven/bun:1-alpine AS builder
 
 WORKDIR /app
 
 COPY frontend/package.json frontend/bun.lock ./
 RUN bun install
-
-FROM base AS builder
 
 COPY frontend/ .
 RUN bun run build
@@ -21,3 +19,4 @@ COPY infra/nginx/frontend.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
+

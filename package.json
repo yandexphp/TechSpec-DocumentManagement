@@ -15,8 +15,5 @@
   "devDependencies": {
     "@biomejs/biome": "^2.3.5",
     "knip": "^5.69.1"
-  },
-  "dependencies": {
-    "@fontsource/open-sans": "^5.2.7"
   }
 }

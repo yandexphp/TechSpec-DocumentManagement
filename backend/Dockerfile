@@ -1,4 +1,4 @@
-FROM node:20-slim AS base
+FROM node:20-slim AS builder
 
 WORKDIR /app
 
@@ -6,14 +6,11 @@ COPY package*.json ./
 RUN npm ci
 
 COPY prisma ./prisma
-RUN npx prisma generate
-
-FROM base AS builder
-
 COPY tsconfig*.json ./
 COPY nest-cli.json ./
 COPY src ./src
 
+RUN npx prisma generate
 RUN npm run build
 
 FROM node:20-slim AS production
@@ -27,11 +24,13 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 COPY --from=builder /app/dist ./dist
-COPY --from=base /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=base /app/node_modules/@prisma ./node_modules/@prisma
-COPY --from=base /app/node_modules/.bin ./node_modules/.bin
-COPY --from=base /app/node_modules/prisma ./node_modules/prisma
-COPY --from=base /app/prisma ./prisma
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+COPY --from=builder /app/node_modules/.bin ./node_modules/.bin
+COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
+COPY --from=builder /app/prisma ./prisma
 
 EXPOSE 3000
+
 CMD ["node", "dist/main.js"]
+

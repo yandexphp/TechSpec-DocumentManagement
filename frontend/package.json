@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.5",
+    "@fontsource/open-sans": "^5.2.7",
     "@playwright/test": "^1.56.1",
     "@tailwindcss/vite": "^4.1.17",
     "@tanstack/react-query-devtools": "^5.90.2",

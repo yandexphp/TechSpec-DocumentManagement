@@ -22,7 +22,7 @@ export class LoginPage {
         await this.page.waitForTimeout(1000);
       }
     } catch (error) {
-        console.warn('Failed to ensure English language:', error);
+      console.warn('Failed to ensure English language:', error);
     }
   }
 
@@ -30,7 +30,7 @@ export class LoginPage {
     await this.page.waitForLoadState('domcontentloaded');
     await this.page.waitForSelector('form', { timeout: 15000 });
     await this.page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {
-        console.warn('⚠️ networkidle state was not reached within 10s');
+      console.warn('⚠️ networkidle state was not reached within 10s');
     });
   }
 
