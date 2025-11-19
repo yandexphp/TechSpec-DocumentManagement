@@ -112,30 +112,35 @@ bun run dev
 docker-compose -f infra/docker/docker-compose.yml up -d postgres redis minio
 ```
 
-**🎉 Application will be available at:** http://localhost:5173
+**🎉 Application will be available at:** [http://localhost:5173](http://localhost:5173)
 
 #### 5️⃣ Database Management (pgAdmin)
 
-pgAdmin доступен для управления базой данных через браузер:
+pgAdmin is available for managing the database through the browser:
 
-**URL:** http://localhost:5050
+**URL:** [http://localhost:5050](http://localhost:5050)
 
-**Учетные данные по умолчанию:**
-- Email: `admin@admin.com`
-- Password: `admin`
+**Default credentials:**
 
-**Подключение к PostgreSQL:**
-1. После входа в pgAdmin, нажмите правой кнопкой на "Servers" → "Register" → "Server"
-2. Вкладка "General":
-   - Name: `Documents DB` (любое имя)
-3. Вкладка "Connection":
-   - Host name/address: `postgres` (имя сервиса в docker-compose)
-   - Port: `5432`
-   - Maintenance database: `documents_db`
-   - Username: `postgres`
-   - Password: `postgres` (или значение из переменной окружения `POSTGRES_PASSWORD`)
+* Email: `admin@admin.com`
+* Password: `admin`
 
-**Настройка через переменные окружения:**
+**Connecting to PostgreSQL:**
+
+1. After logging into pgAdmin, right-click on **"Servers"** → **"Register"** → **"Server"**
+2. **General** tab:
+
+   * Name: `Documents DB` (any name)
+3. **Connection** tab:
+
+   * Host name/address: `postgres` (the service name in docker-compose)
+   * Port: `5432`
+   * Maintenance database: `documents_db`
+   * Username: `postgres`
+   * Password: `postgres` (or the value from the `POSTGRES_PASSWORD` environment variable)
+
+**Configuration via environment variables:**
+
 ```bash
 PGADMIN_EMAIL=your-email@example.com
 PGADMIN_PASSWORD=your-secure-password
@@ -352,7 +357,7 @@ npm run test:e2e        # Run E2E tests
 ```
 
 **Prisma Studio:**
-After running `npm run prisma:studio`, a web interface will open at http://localhost:5555 for viewing and editing database data.
+After running `npm run prisma:studio`, a web interface will open at [http://localhost:5555](http://localhost:5555) for viewing and editing database data.
 
 ### Frontend Commands
 
