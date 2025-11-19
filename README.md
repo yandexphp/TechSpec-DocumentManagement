@@ -13,7 +13,7 @@
 ```bash
 # 1. Clone repository
 git clone git@github.com:yandexphp/TechSpec-DocumentManagement.git
-cd TechSpecTechSpec-DocumentManagement
+cd TechSpec-DocumentManagement
 
 # 2. Start all services via Docker (backend + frontend + infrastructure)
 docker-compose -f infra/docker/docker-compose.yml up -d
@@ -61,7 +61,7 @@ The fastest way to get started:
 ```bash
 # Clone the repository
 git clone git@github.com:yandexphp/TechSpec-DocumentManagement.git
-cd TechSpecTechSpec-DocumentManagement
+cd TechSpec-DocumentManagement
 
 # Start all services
 docker-compose -f infra/docker/docker-compose.yml up -d
@@ -75,7 +75,7 @@ docker-compose -f infra/docker/docker-compose.yml up -d
 
 ```bash
 git clone git@github.com:yandexphp/TechSpec-DocumentManagement.git
-cd TechSpecTechSpec-DocumentManagement
+cd TechSpec-DocumentManagement
 ```
 
 #### 2️⃣ Backend Setup
