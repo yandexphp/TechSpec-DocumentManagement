@@ -37,7 +37,7 @@ docker stack deploy -c infra/docker/docker-stack.yml documents
 # Open in browser:
 # - Frontend: http://localhost
 # - Backend API: http://localhost:3000
-# - Swagger: http://localhost:3000/api
+# - Swagger: http://localhost:3000/api/docs/swagger
 # - MinIO Console: http://localhost:9001 (login: minioadmin, password: minioadmin)
 
 # 7. Stop services
